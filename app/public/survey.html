@@ -9,8 +9,7 @@
     <!-- Bootstrap CSS -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://code.jquery.com.jquery.js"></script>
-
+    
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -217,7 +216,7 @@
     <br>
 
     <!--------------------SUBMIT BUTTON------------------------------------->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-toggle="modal">
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         Submit
     </button>
@@ -236,23 +235,30 @@
     </div>
 </div>
      <!------------------MODAL-----------------------------------------------> 
-     <div id="resultsmodal" class="modal fade" role="dialog">
-         <div class="modal-dialog">
-             <div class="modal-content">
-                 <div class="modal-header">
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h2 class="modal-title"><strong>Best Match</strong></h2>
-                 </div>
-                 <div class="modal-body">
-                     <h2 id="matchName"></h2>
-                     <img id="matchImg" src="" alt="">
-                 </div>
-                 <div class="modal-footer">
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                 </div>
-             </div>
-         </div>
-     </div>
+     <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title">
+                        <strong>Best Match</strong>
+                    </h2>
+                </div>
+                <div class="modal-body">
+                    <h2 id="match-name"></h2>
+                    <img id="match-img" src="" alt="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+     <!--------------JavaScript & jQuery-------------->
 
      <script type="text/javascript">
 
@@ -290,12 +296,20 @@
 
             //assign the URL of the website to a variable
             var currentURL = window.location.origin;
-            console.log(userData);
+            console.log(currentURL);
             //AJAX post data to friends.js (API)
             $.post(currentURL + "/api/friends", userData, function(data) {
-                alert("working");
+                $("#matchName").text(data.name);
+                $("#matchImg").attr("src", data.photo);
+                //console.log("name", data.name);
+
+                $("#results-modal").modal("toggle");
             });
+        } 
+        else {
+            alert("Please fill out all of the fields before submitting!");
         }
+        return false;
      });
     });
      </script>

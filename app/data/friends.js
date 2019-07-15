@@ -1,7 +1,7 @@
 var friends = [
     {
         name: "Ahmned",
-        photo: "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+        photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Riz_Ahmed_by_Gage_Skidmore.jpg/800px-Riz_Ahmed_by_Gage_Skidmore.jpg",
         scores: [
             "5",
             "1",
@@ -17,7 +17,7 @@ var friends = [
     },
     {
         name: "Lavender",
-        photo: "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+        photo: "https://vignette.wikia.nocookie.net/harry-potter-pedia/images/5/57/LavenderBrown.jpg/revision/latest?cb=20140511064822",
         scores: [
             "3",
             "5",
@@ -33,7 +33,7 @@ var friends = [
     },
     {
         name: "Jacynth",
-        photo: "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+        photo: "https://image.shutterstock.com/image-photo/stylish-young-bearded-man-sunglasses-600w-403786201.jpg",
         scores: [
             "5",
             "1",
