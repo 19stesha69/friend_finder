@@ -17,7 +17,7 @@ module.exports = function(app) {
         console.log("We hit it!");
         var userData = req.body;     //req.body comes from the user's input
         var userScores = userData.scores;  //user scores are assigned to its own variable
-console.log('userData',userData);
+        //console.log('userData',userData);
         //totalDifference is used to calculate the difference between the user's scores 
         //and the scores of the friends in the databas
         var totalDifference = 0;

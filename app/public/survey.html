@@ -18,6 +18,9 @@
     <!---------FONT AWESOME------------------------>
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     
+    <!---------CHOSEN------------------------------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
   </head>
 
   <body>
@@ -40,7 +43,7 @@
                 Your mind is always buzzing with unexplored ideas and plans.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item1">
+            <select class="chosen-select" id="item1">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -58,7 +61,7 @@
                 Generally speaking, you rely more on your experience than your imagination.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item2">
+            <select class="chosen-select" id="item2">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -76,7 +79,7 @@
                 You find it easy to stay relaxed and focused even when there is some pressure.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item3">
+            <select class="chosen-select" id="item3">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -94,7 +97,7 @@
                 You rarely do something just out of sheer curiosity.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item4">
+            <select class="chosen-select" id="item4">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -112,7 +115,7 @@
             People can rarely upset you.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item5">
+            <select class="chosen-select" id="item5">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -130,7 +133,7 @@
                 It is often difficult for you to relate to other people’s feelings.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item6">
+            <select class="chosen-select" id="item6">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -148,7 +151,7 @@
             In a discussion, truth should be more important than people’s sensitivities.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item7">
+            <select class="chosen-select" id="item7">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -166,7 +169,7 @@
             You rarely get carried away by fantasies and ideas.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item8">
+            <select class="chosen-select" id="item8">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -184,7 +187,7 @@
             You think that everyone’s views should be respected regardless of whether they are supported by facts or not.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item9">
+            <select class="chosen-select" id="item9">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -202,7 +205,7 @@
             You feel more energetic after spending time with a group of people.
         </label>
         <div style="width: 170px;">
-            <select class="form-control" id="item10">
+            <select class="chosen-select" id="item10">
                 <option value="" selected disabled>Select an Option</option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -216,7 +219,7 @@
     <br>
 
     <!--------------------SUBMIT BUTTON------------------------------------->
-    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-toggle="modal">
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-toggle="modal" data-target="#results-modal">
         <i class="fa fa-check-circle" aria-hidden="true"></i>
         Submit
     </button>
@@ -232,7 +235,6 @@
             </p>
         </div>
     </footer>
-    </div>
 </div>
      <!------------------MODAL-----------------------------------------------> 
      <div id="results-modal" class="modal fade" role="dialog">
@@ -263,6 +265,19 @@
      <script type="text/javascript">
 
     $( document ).ready(function() {
+
+        //CHOSEN
+        var config = {
+            ".chosen-select": {},
+            ".chosen-select-deselect": {allow_single_deselect: true},
+            ".chosen-select-no-single": {disable_search_threshold: 10},
+            ".chosen-select-no-results": {no_results_text: "Oops, nothing found!"},
+            ".chosen-select-width": {width: "95%"}
+        };
+
+        for (var selector in config) {
+            $(selector).chosen(config[selector]);
+        }
 
      $("#submit").on("click", function(){
 
@@ -301,7 +316,7 @@
             $.post(currentURL + "/api/friends", userData, function(data) {
                 $("#matchName").text(data.name);
                 $("#matchImg").attr("src", data.photo);
-                //console.log("name", data.name);
+                console.log("name", data.name);
 
                 $("#results-modal").modal("toggle");
             });
