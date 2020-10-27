@@ -17,7 +17,7 @@ module.exports = function(app) {
         console.log("We hit it!");
         var userData = req.body;     //req.body comes from the user's input
         var userScores = userData.scores;  //user scores are assigned to its own variable
-        //console.log('userData',userData);
+        console.log('userData',userData);
         //totalDifference is used to calculate the difference between the user's scores 
         //and the scores of the friends in the databas
         var totalDifference = 0;
@@ -30,7 +30,7 @@ module.exports = function(app) {
             //loop through the scores of each friend
             for (var j = 0; j < friends[i].scores[j]; j++) {
                 //calculate the difference between scores and add them to the total Difference
-                totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+                totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));                                                                                                                                                                                                        8
 
                 //If sum of differences is less than the differences of the current "best match"
                 if(totalDifference <= bestFriend.friendDifference) {
