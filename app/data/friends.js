@@ -1,6 +1,6 @@
 var friends = [
     {
-        name: "Ahmed",
+        name: "Riz",
         photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Riz_Ahmed_by_Gage_Skidmore.jpg/800px-Riz_Ahmed_by_Gage_Skidmore.jpg",
         scores: [
             "5",
