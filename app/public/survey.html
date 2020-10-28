@@ -245,7 +245,7 @@
                 </div>
                 <div class="modal-body">
                     <h2 id="matchName"></h2>
-                    <img id="matchImg" src="" alt="" style="width: 100%;">
+                    <img class="w-100 p-3" id="matchImg" src="" alt="">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -281,54 +281,48 @@
      // Capture the form inputs 
         $("#submit").on("click", function(){
 
-        // Form Validation
-        function validateForm() {
-            var isValid = true;
-            $(".form-control").each(function() {
-                if($(this).val() === "") {
-                    isValid = false;
-                }
-            });
-            $(".chosen-select").each(function() {
-                if($(this).val() === "") {
-                    isValid - false;
-                }
-            });
-            return isValid;
-        }
+            // Form Validation
+            function validateForm() {
+                let isValid = true;
+                $(".form-control").each(function() {
+                    if($(this).val() === "") {
+                        isValid = false;
+                    }
+                });             
+                return isValid;
+            }
 
-        if(validateForm()) {
-            var userData = {
-                name: $("#name").val(),
-                photo: $("#photo").val(),
-                scores: [
-                    $("#item1").val(),
-                    $("#item2").val(),
-                    $("#item3").val(),
-                    $("#item4").val(),
-                    $("#item5").val(),
-                    $("#item6").val(),
-                    $("#item7").val(),
-                    $("#item8").val(),
-                    $("#item9").val(),
-                    $("#item10").val()
-                ]
-            };
+            if(validateForm()) {
+                var userData = {
+                    name: $("#name").val(),
+                    photo: $("#photo").val(),
+                    scores: [
+                        $("#item1").val(),
+                        $("#item2").val(),
+                        $("#item3").val(),
+                        $("#item4").val(),
+                        $("#item5").val(),
+                        $("#item6").val(),
+                        $("#item7").val(),
+                        $("#item8").val(),
+                        $("#item9").val(),
+                        $("#item10").val()
+                    ]
+                };
 
-            //assign the URL of the website to a variable
-            var currentURL = window.location.origin;
-            console.log(currentURL);
-            //AJAX post data to friends.js (API)
-            $.post(currentURL + "/api/friends", userData, function(data) {
-                $("#matchName").text(data.name);
-                $("#matchImg").attr("src", data.photo);
-                console.log("name", data.name);
-                console.log("photo", data.photo);
-                $("#results-modal").modal("toggle");
-                // alert("Working");
-            });
-        } 
-            else {
+                //assign the URL of the website to a variable
+                var currentURL = window.location.origin;
+                console.log(currentURL);
+                //AJAX post data to friends.js (API)
+                $.post(currentURL + "/api/friends", userData, function(data) {
+                    $("#matchName").text(data.name);
+                    $("#matchImg").attr("src", data.photo);
+                    console.log("name", data.name);
+                    console.log("photo", data.photo);
+                    $("#results-modal").modal("toggle");
+                    // alert("Working");
+                });
+            } else {
                 alert("Please fill out all of the fields before submitting!");
             }
             return false;
