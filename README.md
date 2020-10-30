@@ -1,12 +1,13 @@
 # friend_finder
-Friend Finder is an application that pairs a set of user input with stored data that shares the closest compatibility.
+Friend Finder is an application, utilizing Node.js and Express.js, that pairs a set of user input with stored data that shares the closest compatibility.
 
-* It runs on Node.js and Express.js.
+Find it deployed here => [Deployed on heroku.com](https://calm-dusk-90430.herokuapp.com/)
 
-# Npm packages
+# Npm packages in use
 * Express - Server framework
 * Body-Parser - Body parsing middleware
 * Path - Built in Node module. Allows for access to file and directory paths
 
-Deployed here => https://calm-dusk-90430.herokuapp.com/
+# How to use
+
 
