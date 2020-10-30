@@ -10,7 +10,7 @@ Find it here => [Deployed on heroku.com](https://calm-dusk-90430.herokuapp.com/)
 
 # How to use
 
-1. Click to blue "Go to Survey" button.
+1. Click the blue "Go to Survey" button.
 
 ![Friend FInder Home Page](/images/FriendFinderHomePage.png)
 
