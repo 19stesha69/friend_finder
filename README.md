@@ -17,6 +17,6 @@ Find it here => [Deployed on heroku.com](https://calm-dusk-90430.herokuapp.com/)
 2. Fill in "name" with your name and "link to photo image" with a url to an image. Both are required.   
    An alert box will appear if one or both are omitted.
    
-![Friend Finder Questions](/images/FriendFinderQuestions1.png)
+![Friend Finder Questions](/images/FriendFinderQuestions1.png) ![Friend Finder More Questions](/images/FriendFinderQuestions2.png)
 
 
