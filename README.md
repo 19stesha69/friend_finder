@@ -33,9 +33,9 @@ I will explain that number in a moment
 
 The way the closest match is found is done like this:
 1. The program loops through the list of "friends" contained in the "friends" JSON file.
-2. For each "friend", it then loops through each of the "friend"'s answers, comparing them to the user's answers by subtracting the user's number from the friend's numbers.
+2. For each "friend", it then loops through each of the "friend"'s answers, comparing them to the user's answers by subtracting the user's number from the friend's number.
 3. These differences are added up and become the value of the variable "totalDifference".
-4. "totalDifference" is then compared to the value of "friendDifference". If "totalDifference" is the smaller integer of the two, then the "friend" that number applies to now        beomes the properties of the "bestFriend" object. 
+4. "totalDifference" is then compared to the value of "friendDifference". If "totalDifference" is the smaller integer of the two, then the "friend" that number applies to now        beomes the property of the "bestFriend" object. 
 5. This repeats for each "friend" in the "apiRoutes.js" file until complete.
 6. The "friend" who had the overall lowest "totalDifference" value is the one who will be presented to the user as their closest match.
 
