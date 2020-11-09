@@ -26,6 +26,22 @@ Find it here => [Deployed on heroku.com](https://calm-dusk-90430.herokuapp.com/)
 
 # How does the app know who to match the user with?
 
+(The following logic takes place inside the apiRoutes.js file)
+
+This process begins with an object called "bestFriend", containing empty fields for "name", "image", and a "friendDifference" value of 1000.   
+I will explain that number in a moment
+
+The way the closest match is found is done like this:
+1. The program loops through the list of "friends" contained in the "friends" JSON file.
+2. For each "friend", it then loops through each of the "friend"'s answers, comparing them to the user's answers by subtracting the user's number from the friend's numbers.
+3. These differences are added up and become the value of the variable "totalDifference".
+4. "totalDifference" is then compared to the value of "friendDifference". If "totalDifference" is the smaller integer of the two, then the "friend" that number applies to now        beomes the properties of the "bestFriend" object. 
+5. This repeats for each "friend" in the "apiRoutes.js" file until complete.
+6. The "friend" who had the overall lowest "totalDifference" value is the one who will be presented to the user as their closest match.
+
+Wait... what about that "friendDifference" of 1000 at the beginning of this? What was that all about?
+
+The number 1000 is chosen because it is so ridiculously high a number, there's no way any of the matches could result in a "totalDifference" that was higher than that starting number. In the case of this particular program, the maximum "totalDifference" possible is 40, so even a starting "friendDifference" of 50 would be enough, but 1000 is so high, it eliminates any question of an error without worrying about a max-difference. 
 
 
 
