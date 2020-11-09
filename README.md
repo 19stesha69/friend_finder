@@ -15,8 +15,18 @@ Find it here => [Deployed on heroku.com](https://calm-dusk-90430.herokuapp.com/)
 ![Friend Finder Home Page](/images/FriendFinderHomePage.png)
 
 2. Fill in "name" with your name and "link to photo image" with a url to an image. Both are required.   
-   An alert box will appear if one or both are omitted.
+   An alert box will appear if one or both are omitted.  
+   When all of the questions have been answered, click "Submit".
    
 ![Friend Finder Questions](/images/FriendFinderQuestions1.png) ![Friend Finder More Questions](/images/FriendFinderQuestions2.png)
+
+3. Upon clicking "Submit", a modal will open, displaying an image and name of a friend match from data stored in the app's file of friend objects.
+
+![Friend Finder Match](/images/FriendFinderMatch.png)
+
+# How does the app know who to match the user with?
+
+
+
 
 
